@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="com.spring.board.BoardDAO, com.spring.board.BoardVO,java.util.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +41,7 @@
 <table id="list" width="90%">
 <tr>
 	<th>Id</th>
+	<th>Category</th>
 	<th>Title</th>
 	<th>Writer</th>
 	<th>Content</th>
@@ -48,19 +49,19 @@
 	<th>Edit</th>
 	<th>Delete</th>
 </tr>
-<c:forEach items="${list}" var="u">
+<c:forEach items="${list}" var="boardVO">
 	<tr>
-		<td>${u.seq}</td>
-		<td>${u.category}</td>
-		<td>${u.title}</td>
-		<td>${u.writer}</td>
-		<td>${u.content}</td>
-		<td>${u.regdate}</td>
-		<td><a href="editform/${u.seq()}">Edit</a></td>
-		<td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
+		<td>${boardVO.seq}</td>
+		<td>${boardVO.category}</td>
+		<td>${boardVO.title}</td>
+		<td>${boardVO.writer}</td>
+		<td>${boardVO.content}</td>
+		<td>${boardVO.regdate}</td>
+		<td><a href="editform/${boardVO.seq}">Edit</a></td>
+		<td><a href="javascript:delete_ok('${boardVO.seq}')">Delete</a></td>
 	</tr>
 </c:forEach>
 </table>
-<br/><a href="addpostform.jsp">Add New Post</a>
+<br/><a href="add">Add New Post</a>
 </body>
 </html>

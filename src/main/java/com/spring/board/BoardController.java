@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BoardController {
     @Autowired
     BoardServiceImpl boardService;
+
+
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String boardlist(Model model){
         model.addAttribute("list",boardService.getBoardList());
@@ -34,7 +36,7 @@ public class BoardController {
     @RequestMapping(value = "/editform/{id}",method = RequestMethod.GET)
     public String editPost(@PathVariable("id")int id,Model model){
         BoardVO boardVO= boardService.getBoard(id);
-        model.addAttribute("u",boardVO);
+        model.addAttribute("boardVO",boardVO);
         return "editform";
     }
     @RequestMapping(value = "/editok",method = RequestMethod.POST)

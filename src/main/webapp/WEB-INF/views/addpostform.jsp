@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>
 <tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>
 </table>
-    <button type="button" onclick="location.href=list">목록보기</button>
+    <button type="button" onclick="location.href='list'">목록보기</button>
     <button type="submit">등록하기</button>
 </form>
 
